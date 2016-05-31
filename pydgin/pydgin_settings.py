@@ -7,6 +7,7 @@ PAGE_SECTIONS = {
     'GeneView': OrderedDict([
         ('overview', {'show': True, 'collapse': False}),
         ('jbrowse', True),
+        ('tcell profile', True),
         ('external links', True),
         ('criteria', True),
         ('study', True),
