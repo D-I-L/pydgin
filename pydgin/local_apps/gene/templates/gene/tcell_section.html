@@ -1,0 +1,50 @@
+{% extends "section.html" %}
+{% block section %}
+{% load filter_tags %}
+{% load pydgin_tags %}
+
+<p>CD4+ T-cells were activated and RNA isolated from cells
+	harvested at 2, 4, 6 and 21 hours (stimulated - blue), in addition to
+	untreated cells (green) collected at 0, 6 and 21 hours. These samples
+	were hybridised to the Affymetrix human GeneST microarray, the raw data
+	was normalised using variance stabilisation and analysed using the
+	R-package 'limma'.</p>
+
+{% load static %}
+{% with feature|doc_attr:"symbol" as symbol %}
+{% with "tcell/"|add:symbol|add:".png" as png_file%}
+
+{% load pydgin_tags %}
+{% if png_file|img_exists %}
+<div class="row">
+	<div class="col-md-6 text-center">
+		<img src='{% static png_file %}' alt="{{ symbol }}.png" />
+	</div>
+
+	<div class="col-md-6">
+		<p>Expression profiles are shown for all genes that match
+			probesets uniquely, and a barplot is shown for each of these
+			probesets that only detect transcripts encoded by the gene. The
+			y-axis of the plot shows the mean of the background-subtracted,
+			normalised intensities for all the samples comprising a given
+			timepoint, with the error bars representing the standard deviation;
+			the activation and their corresponding untreated controls are shown
+			on the x-axis. The gene-level probeset identifier is displayed along
+			the right hand side of the barplot. The results of the paired t-tests
+			performed on the stimulated/untreated samples at 6 and 21 hours are
+			shown in the top right-hand corner. An up-arrow indicates a
+			significant increase, a down-arrow a significant decrease and a
+			horizontal line with an arrow at each end indicates no evidence of a
+			change. Beneath these graphics is the estimated fold-change, along
+			with the p-value of the test (adjusted for multiple testing) in round
+			brackets. There are time points where the probeset was not detected
+			above background and in these cases the barplot appears faded out.</p>
+	</div>
+</div>
+{% else %}
+<p>No expression profile available for {{ symbol }}.</p>
+{% endif %}
+{% endwith %}
+{% endwith %}
+
+{% endblock %}

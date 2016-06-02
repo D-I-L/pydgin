@@ -6,7 +6,8 @@ DEFAULT_BUILD = 38
 PAGE_SECTIONS = {
     'GeneView': OrderedDict([
         ('overview', {'show': True, 'collapse': False}),
-        ('jbrowse', True),
+        ('jbrowse', {'show': True, 'collapse': False}),
+        ('tcell profile', True),
         ('external links', True),
         ('criteria', True),
         ('study', True),
@@ -16,7 +17,7 @@ PAGE_SECTIONS = {
         ('phenotype links', True)]),
     'MarkerView': OrderedDict([
         ('overview', {'show': True, 'collapse': False}),
-        ('jbrowse', True),
+        ('jbrowse', {'show': True, 'collapse': False}),
         ('historical ids', True),
         ('criteria', True),
         ('functional information', True),
@@ -33,8 +34,8 @@ PAGE_SECTIONS = {
         ('overview', True)]),
     'RegionView': OrderedDict([
         ('overview', {'show': True, 'collapse': False}),
+        ('jbrowse', {'show': True, 'collapse': False}),
         ('criteria', True),
-        ('jbrowse', True),
         ('study', True),
         ('publications', {'show': True})])
 }

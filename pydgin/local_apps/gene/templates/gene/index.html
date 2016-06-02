@@ -23,6 +23,13 @@
 		
 	{% elif section_title == 'study' %}
 		{% include 'study/studies_section.html' with ens_id=f|doc_id %}
+	{% elif section_title == 'tcell profile' %}
+	
+		{% load permissions_tag %}
+		{% if user|is_in_group:"DIL" %}
+			{% include 'gene/tcell_section.html' with feature=f %}
+		{% endif %}
+
 	{% else %}
 		{% with "gene/"|add:section|add:"_section.html" as template %}
 			{% include template  with gene=f %}

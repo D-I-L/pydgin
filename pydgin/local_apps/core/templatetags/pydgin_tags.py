@@ -3,6 +3,7 @@ from django.conf import settings
 
 from core.document import FeatureDocument, PydginDocument, ResultCardMixin
 from gene import utils
+import os
 
 
 register = template.Library()
@@ -126,3 +127,8 @@ def chromosome(doc):
 def ens2sym(ens_ids):
     ''' Convert ensembl IDs to gene symbols. '''
     return utils.get_gene_docs_by_ensembl_id(ens_ids)
+
+
+@register.filter()
+def img_exists(filepath):
+    return os.path.exists(os.path.join(settings.STATIC_ROOT, filepath))
