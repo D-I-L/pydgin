@@ -8,7 +8,7 @@
 		<td>{{ f|doc_attr:"ref" }}/{{ f|doc_attr:"alt" }}</td>
 		<td>
 		{% with loc=f|doc_attr:"seqid" %}
-			{% if f|doc_attr:"marker_build" == 38 %}<a href="/jbrowse/index.html?loc=chr{{ loc }}:{{ f|doc_attr:"start"|add:"-10000" }}-{{ f|doc_attr:"start"|add:"10000" }}">chr{{ loc }}: {{ f|doc_attr:"start" }}</a>
+			{% if f|doc_attr:"marker_build" == 38 %}<a href="/jbrowse/index.html?loc=chr{{ loc }}:{{ f|doc_attr:"start"|add:"-10000" }}..{{ f|doc_attr:"start"|add:"10000" }}">chr{{ loc }}: {{ f|doc_attr:"start" }}</a>
 			{% else %}chr{{ loc }}: {{ f|doc_attr:"start" }}{% endif %}
 		{% endwith %}
 		</td>
@@ -35,7 +35,7 @@
 			<tr><td>{{ ic_marker|doc_attr:"name" }}</td>
 			<td>{{ ic_marker|doc_attr:"allele_a" }}/{{ ic_marker|doc_attr:"allele_b" }}</td>
 			<td>
-			{% if build.build == 38 %}<a href="/jbrowse/index.html?loc=chr{{ build.seqid }}:{{ build.position|add:"-10000" }}-{{ build.position|add:"10000" }}">chr{{ build.seqid }}: {{ build.position }}</a>
+			{% if build.build == 38 %}<a href="/jbrowse/index.html?loc=chr{{ build.seqid }}:{{ build.position|add:"-10000" }}..{{ build.position|add:"10000" }}">chr{{ build.seqid }}: {{ build.position }}</a>
 			{% else %}chr{{ build.seqid }}: {{ build.position }}{% endif %}
 			</td>
 			<td>{{ build.build }}</td>
