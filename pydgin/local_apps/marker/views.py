@@ -140,7 +140,7 @@ def association_stats(request, sources=None):
     query = ElasticQuery(Query.query_string(seqid, fields=["seqid"]), sources=sources)
     if start is not None and end is not None:
         query = ElasticQuery(BoolQuery(must_arr=[Query.query_string(seqid, fields=["seqid"]),
-                                                 RangeQuery("position", gte=start, lte=end)]), 
+                                                 RangeQuery("position", gte=start, lte=end)]),
                              sources=sources)
     ScanAndScroll.scan_and_scroll(ElasticSettings.idx('IC_STATS', idx_type), call_fun=get_stats, query=query)
 
