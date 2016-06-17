@@ -106,6 +106,18 @@
       },
       {
          "category" : "Immunochip Statistics",
+         "label" : "cro_jostins",
+         "storeClass" : "PydginElastic/Store/SeqFeature/MarkerStats",
+         "maxHeight": 100,
+         "key" : "CRO - Jostins",
+         "autoscale": "local",
+         "urlTemplate" : "/marker/stats/?chr={refseq}&start={start}&end={end}&idx_type=cro_liu",
+         "type" : "PydginElastic/View/Track/Wiggle/XYPlot/PydginXY",
+         "noFill": true,
+         "onClick" : { "url" : "/marker/{id}/" },
+      },
+      {
+         "category" : "Immunochip Statistics",
          "label" : "uc_liu",
          "storeClass" : "PydginElastic/Store/SeqFeature/MarkerStats",
          "maxHeight": 100,
