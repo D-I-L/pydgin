@@ -17,5 +17,5 @@ class LDRestTest(TestCase):
             self.assertEqual(response.status_code, status.HTTP_200_OK)
             ld = json.loads(response.content.decode("utf-8"))[0]['ld']
             self.assertGreater(len(ld), 0, 'results found')
-        except (RConnectionRefused, KeyError):
+        except (RConnectionRefused, KeyError, TypeError):
             pass
